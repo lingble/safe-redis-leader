@@ -14,7 +14,7 @@ export async function atomicGetIsEqualDelete(
   id: string,
 ): Promise<boolean> {
   if (!asyncRedis.getIsEqualDelete) {
-    const file = await readFile(`${__dirname}/index.lua`, "utf8");
+    const file = await readFile(`${__dirname}/../luas/atomicGetIsEqualDelete.lua`, "utf8");
 
     asyncRedis.defineCommand("getIsEqualDelete", {
       numberOfKeys: 1,

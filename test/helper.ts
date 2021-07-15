@@ -1,6 +1,6 @@
-/* eslint-disable no-async-promise-executor */
-import { EmitterEnum, SafeRedisLeader } from "../src";
+import { EmitterEnum, SafeRedisLeader } from "../src/safeRedisLeader";
 
+/* eslint-disable no-async-promise-executor */
 export async function waitForElection(safeLeader: SafeRedisLeader): Promise<boolean> {
   return new Promise<boolean>(async (resolve) => {
     safeLeader.on(EmitterEnum.ELECTED, async () => {

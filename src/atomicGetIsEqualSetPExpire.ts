@@ -15,7 +15,7 @@ export async function atomicGetIsEqualSetPExpire(
   ms: number,
 ): Promise<boolean> {
   if (!asyncRedis.getIsEqualSetPExpire) {
-    const file = await readFile(`${__dirname}/index.lua`, "utf8");
+    const file = await readFile(`${__dirname}/../luas/atomicGetIsEqualSetPExpire.lua`, "utf8");
 
     asyncRedis.defineCommand("getIsEqualSetPExpire", {
       numberOfKeys: 1,

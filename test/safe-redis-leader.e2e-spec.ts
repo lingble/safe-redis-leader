@@ -1,10 +1,9 @@
-import * as Redis from "ioredis";
+import Redis from "ioredis";
 
-import { SafeRedisLeader } from "../src";
+import { SafeRedisLeader } from "../src/safeRedisLeader";
 import { getLeaderIndex, sleep, waitForElection } from "./helper";
 
 /* eslint-disable no-await-in-loop */
-jest.setTimeout(1000 * 15);
 
 describe("SafeRedisLeader", () => {
   let redisClients: Redis.Redis[] = [];

@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true
-  }
+    "lib": ["ES6", "DOM"],
+    "typeRoots": ["node_modules/@types"],
+    "esModuleInterop": true
+  },
+  "exclude": ["./node_modules", "./dist", "./test"],
 }

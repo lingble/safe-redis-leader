@@ -2,12 +2,13 @@
   "name": "ts-safe-redis-leader",
   "version": "0.0.3",
   "description": "Redis leader election implementation that does not have any race conditions in Typescript",
-  "main": "src/index.js",
+  "main": "dist/safeRedisLeader.js",
   "scripts": {
     "eslint": "eslint '{src,apps,libs,test}/**/*.ts' --fix",
     "test:debug": "node --inspect=0.0.0.0:9229 node_modules/.bin/jest --config ./test/jest-e2e.json --runInBand",
     "test": "node_modules/.bin/jest --config ./test/jest-e2e.json",
-    "prepublish": "npm run eslint && npm run test"
+    "prepublishOnly": "npm run eslint && npm run test && npm run build",
+    "build": "tsc"
   },
   "author": "Marc Gagnon",
   "license": "MIT",
@@ -44,6 +45,7 @@
     "jest": "^27.0.6",
     "lodash": "^4.17.21",
     "ts-jest": "^27.0.3",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "uglify-js": "^3.13.10"
   }
 }
