@@ -1,11 +1,13 @@
 {
-  "name": "safe-redis-leader",
-  "version": "0.0.6",
-  "description": "Redis leader election implementation that does not have any race conditions",
-  "main": "src/src/index.js",
+  "name": "ts-safe-redis-leader",
+  "version": "0.0.1",
+  "description": "Redis leader election implementation that does not have any race conditions in Typescript",
+  "main": "src/index.js",
   "scripts": {
-    "test": "npm install && NODE_ENV=test node ./docker/scripts/runner.js",
-    "example:multi-client": "npm install && EXAMPLE='multi-client' node ./docker/scripts/runner.js"
+    "eslint": "eslint '{src,apps,libs,test}/**/*.ts' --fix",
+    "test:debug": "node --inspect=0.0.0.0:9229 node_modules/.bin/jest --config ./test/jest-e2e.json --runInBand",
+    "test": "node_modules/.bin/jest --config ./test/jest-e2e.json",
+    "prepublish": "npm run eslint && npm run test"
   },
   "author": "Michael Khirallah",
   "license": "MIT",
@@ -22,5 +24,26 @@
   "bugs": {
     "url": "https://github.com/mkralla11/safe-redis-leader/issues"
   },
-  "homepage": "https://github.com/mkralla11/safe-redis-leader#readme"
+  "homepage": "https://github.com/mkralla11/safe-redis-leader#readme",
+  "dependencies": {
+    "ioredis": "^4.27.6"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.26.5",
+    "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^16.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "lodash": "^4.17.21",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.5"
+  }
 }
