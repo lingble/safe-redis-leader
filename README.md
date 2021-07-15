@@ -2,6 +2,11 @@
 
 Fork of: [Safe Redis Leader](https://www.npmjs.com/package/safe-redis-leader)
 
+1. Built with typescript
+2. New tests running with Jest and testing multiple instances at the same time to make sure there is only 1 leader at all time
+3. New event (main reason of this fork) 
+  - After an election, all the instances will send an event either ```elected``` or ```notElected```
+
 ## Goal
 
 The Safe Redis Leader TS module is designed to provide a leader election implementation that provides tested gaurentees that there is only a single leader elected from a group of clients at one time.
@@ -10,9 +15,7 @@ The implementation is a port of the stale [Redis Leader npm package](https://git
 
 1. Only exposes public api functions that should be exposed (no more public-but-should-be-private `_elect` fn)
 2. has a test suite within docker-compose using a real redis instance, which allows anyone to run the tests with no heavy dependency setup
-3. Has tests to assert the known race condition can no longer occur
-4. Replace callback-hell with async/await
-5. Built with typescript
+3. Replace callback-hell with async/await
 
 ## Usage
 
