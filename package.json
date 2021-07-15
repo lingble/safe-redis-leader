@@ -9,11 +9,11 @@
     "test": "node_modules/.bin/jest --config ./test/jest-e2e.json",
     "prepublish": "npm run eslint && npm run test"
   },
-  "author": "Michael Khirallah",
+  "author": "Marc Gagnon",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkralla11/safe-redis-leader.git"
+    "url": "git+https://github.com/Nesci28/safe-redis-leader.git"
   },
   "keywords": [
     "redis",
@@ -22,9 +22,9 @@
     "distributed"
   ],
   "bugs": {
-    "url": "https://github.com/mkralla11/safe-redis-leader/issues"
+    "url": "https://github.com/Nesci28/safe-redis-leader/issues"
   },
-  "homepage": "https://github.com/mkralla11/safe-redis-leader#readme",
+  "homepage": "https://github.com/Nesci28/safe-redis-leader/blob/master/README.md",
   "dependencies": {
     "ioredis": "^4.27.6"
   },
