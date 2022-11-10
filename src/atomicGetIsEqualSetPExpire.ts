@@ -1,16 +1,16 @@
 import { readFile as fsReadFile } from "fs";
-import IORedis from "ioredis";
+import Redis, { RedisKey } from "ioredis";
 import { promisify } from "util";
 
 const readFile = promisify(fsReadFile);
 
 type getIsEqualSetPExpireType = {
-  getIsEqualSetPExpire?: (key: IORedis.KeyType, id: string, ms: number) => Promise<boolean>;
+  getIsEqualSetPExpire?: (key: RedisKey, id: string, ms: number) => Promise<boolean>;
 };
 
 export async function atomicGetIsEqualSetPExpire(
-  asyncRedis: IORedis.Redis & getIsEqualSetPExpireType,
-  key: IORedis.KeyType,
+  asyncRedis: Redis & getIsEqualSetPExpireType,
+  key: RedisKey,
   id: string,
   ms: number,
 ): Promise<boolean> {

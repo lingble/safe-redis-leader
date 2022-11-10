@@ -1,5 +1,5 @@
 import { BinaryLike, createHash, randomBytes } from "crypto";
-import IORedis from "ioredis";
+import Redis, { RedisKey } from "ioredis";
 
 import { atomicGetIsEqualDelete } from "./atomicGetIsEqualDelete";
 import { atomicGetIsEqualSetPExpire } from "./atomicGetIsEqualSetPExpire";
@@ -31,19 +31,19 @@ export class SafeRedisLeader {
 
   public electTimeoutId!: ReturnType<typeof setTimeout>;
 
-  public asyncRedis: IORedis.Redis;
+  public asyncRedis: Redis;
 
   public ttl: number;
 
   public wait: number;
 
-  public key: IORedis.KeyType;
+  public key: RedisKey;
 
   constructor(
-    asyncRedis: IORedis.Redis,
+    asyncRedis: Redis,
     ttl: number,
     wait: number,
-    key: IORedis.KeyType,
+    key: RedisKey,
   ) {
     this.asyncRedis = asyncRedis;
     this.ttl = ttl;

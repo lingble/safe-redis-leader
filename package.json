@@ -27,10 +27,9 @@
   },
   "homepage": "https://github.com/Nesci28/safe-redis-leader/blob/master/README.md",
   "dependencies": {
-    "ioredis": "^4.27.6"
+    "ioredis": "^5.2.3"
   },
   "devDependencies": {
-    "@types/ioredis": "^4.26.5",
     "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
     "@types/node": "^16.3.2",

@@ -1,16 +1,16 @@
 import { readFile as fsReadFile } from "fs";
-import IORedis from "ioredis";
+import Redis, { RedisKey } from "ioredis";
 import { promisify } from "util";
 
 const readFile = promisify(fsReadFile);
 
 type getIsEqualDeleteType = {
-  getIsEqualDelete?: (key: IORedis.KeyType, id: string) => Promise<boolean>;
+  getIsEqualDelete?: (key: RedisKey, id: string) => Promise<boolean>;
 };
 
 export async function atomicGetIsEqualDelete(
-  asyncRedis: IORedis.Redis & getIsEqualDeleteType,
-  key: IORedis.KeyType,
+  asyncRedis: Redis & getIsEqualDeleteType,
+  key: RedisKey,
   id: string,
 ): Promise<boolean> {
   if (!asyncRedis.getIsEqualDelete) {
